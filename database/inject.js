@@ -33,7 +33,7 @@ function populate(objArr, func) {
 
   for (let i = 0; i < random; i += 1) {
     for (let j = 0; j < objArr.length; j += 1) {
-      arr.push(func(obj));
+      arr.push(func(objArr[j]));
     }
   }
 
@@ -56,7 +56,7 @@ async function inject(primary) {
   let highlights = await populate(events, highlight);
 
   return new Promise((res, rej) => {
-    res(highlights);
+    res('Done');
   });
 }
 
