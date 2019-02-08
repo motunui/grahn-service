@@ -18,7 +18,7 @@
 
 > To start this project simple run `npm start`
 
-![npm start]('./readme/run.gif')
+![npm start](https://github.com/motunui/grahn-service/blob/master/readme/run.gif)
 
 ## Requirements
 
