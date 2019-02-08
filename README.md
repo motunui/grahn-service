@@ -1,13 +1,12 @@
 # Project Name
 
-> Project description
+> grahn-service is a micro service which handles the title description component located on TripAdvisor. This micro service will handle all api calls to a specific event and render that events related content.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+- https://github.com/motunui/gary-service
+- https://github.com/motunui/David-service
+- https://github.com/motunui/kevin-service
 
 ## Table of Contents
 
@@ -17,7 +16,9 @@
 
 ## Usage
 
-> Some usage instructions
+> To start this project simple run `npm start`
+
+![npm start]('./readme/run.gif')
 
 ## Requirements
 
@@ -36,4 +37,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
