@@ -7,10 +7,9 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:eventId', (req, res) => {
-  let params = req.params;
-  console.log('EVENT: params', params);
+  let { eventId } = req.params;
 
-  Event.findById(params.eventId)
+  Event.findById(eventId)
     .then((result) => {
       if (result) {
         res.json(result);
