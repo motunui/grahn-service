@@ -1,11 +1,17 @@
-let express = require('express');
-let app = express();
-let path = require('path');
-const PORT = 3001;
+const path = require('path');
+const express = require('express');
+const apiRoutes = require('./api/routes/api.routes.js');
+const morgan = require('morgan');
 
+const app = express();
+const PORT = 3014;
+
+app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', apiRoutes);
 
 app.listen(PORT, () => {
   console.log('Listening on Port : ', PORT);
