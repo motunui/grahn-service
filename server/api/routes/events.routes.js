@@ -3,24 +3,39 @@ let router = express.Router();
 let { Event } = require('../../../database/models.js');
 
 router.get('/', (req, res, next) => {
-  res.send({ Event: 'This is the envents root route' });
-});
-
-router.get('/:id', (req, res) => {
-  let params = req.params;
-
-  Event.findById(params.id)
+  // NOTE: Should this call get all entries of the database?
+  Event.findOne()
     .then((result) => {
       if (result) {
-        res.json(result);
+        res.send(result);
       }
     })
-    .catch((err) => {});
+    .catch((err) => {
+      res.statusCode(500);
+    });
 });
 
-router.post('/', (req, res) => {
+router.get('/:from-:to', (req, res, next) => {
+  let { from, to } = req.params;
+
+  // still not working
+  res.send({ from, to });
+});
+
+router.post('/:from-:to', (req, res) => {
   let body = req.body;
-  res.send(body);
+  let { from, to } = req.params;
+
+  // still not working
+  res.send({ to, from, body });
+});
+
+router.put('/:from-:to', (req, res) => {
+  let body = req.body;
+  let { from, to } = req.params;
+
+  // still not working
+  res.send({ to, from, body });
 });
 
 module.exports = router;
