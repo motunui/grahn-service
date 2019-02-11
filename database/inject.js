@@ -27,20 +27,20 @@ function highlight({ dataValues }) {
   });
 }
 
-function populate(locations, func) {
-  let arr = [];
+function populate(models, func) {
+  let arr = [],
+    random;
 
-  locations.forEach((location) => {
-    let random = randomizeNumberThrough(1, 3);
+  models.forEach((model) => {
+    if (func.name === 'highlight') {
+      random = randomizeNumberThrough(3, 6);
+    } else {
+      random = randomizeNumberThrough(1, 3);
+    }
     for (let i = 0; i < random; i += 1) {
-      arr.pop(func(location));
+      arr.push(func(model));
     }
   });
-  // for (let i = 0; i < random; i += 1) {
-  //   for (let j = 0; j < objArr.length; j += 1) {
-  //     arr.push(func(objArr[j]));
-  //   }
-  // }
 
   return Promise.all(arr);
 }

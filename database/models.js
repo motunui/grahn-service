@@ -23,7 +23,8 @@ const Guarantee = db.define('guarantee', {
 
 Location.hasMany(Event);
 Event.belongsTo(Location);
-Event.hasOne(HighLights);
+Event.hasMany(HighLights);
+HighLights.belongsTo(Event);
 
 module.exports = {
   Location: Location,
