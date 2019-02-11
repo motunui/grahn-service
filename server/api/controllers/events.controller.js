@@ -1,13 +1,19 @@
-let { Event, Location } = require('../../../database/models.js');
+let { Event, Location, HighLights } = require('../../../database/models.js');
 let { Op } = require('sequelize');
 
 module.exports.findAll = (req, res, next) => {
-  Event.findAndCountAll()
+  Event.findAll({
+    include: [Location, HighLights]
+  })
     .then((result) => {
-      if (result.count > 0) {
-        res.json(result);
+      let response = {};
+
+      if (result.length > 0) {
+        response.count = result.length;
+        response.rows = result;
+        res.json(response);
       } else {
-        res.status(400).send(result);
+        res.status(400).send(response);
       }
     })
     .catch((err) => {
@@ -16,20 +22,26 @@ module.exports.findAll = (req, res, next) => {
 };
 
 module.exports.findFrom = (req, res, next) => {
-  let { to } = req.params;
+  let { from } = req.params;
 
-  Event.findAndCountAll({
-    include: [Location],
-    offset: to
+  // TODO: Not Working Right
+  Event.findAll({
+    include: [Location, HighLights],
+    offset: +from
   })
     .then((result) => {
-      if (result.count > 0) {
-        res.json(result);
+      let response = {};
+
+      if (result.length > 0) {
+        response.count = result.length;
+        response.rows = result;
+        res.json(response);
       } else {
-        res.status(400).send(result);
+        res.status(400).send(response);
       }
     })
     .catch((err) => {
+      console.log('TCL: module.exports.findFrom -> err', err);
       res.status(500).send(err);
     });
 };
@@ -37,15 +49,18 @@ module.exports.findFrom = (req, res, next) => {
 module.exports.findByLocation = (req, res, next) => {
   let { locationId } = req.params;
 
-  Event.findAndCountAll({
+  Event.findAll({
     where: { '$Location.id$': locationId },
-    include: [Location]
+    include: [Location, HighLights]
   })
     .then((result) => {
-      if (result.count > 0) {
-        res.json(result);
+      let response = {};
+      if (result.length > 0) {
+        response.count = result.length;
+        response.rows = result;
+        res.json(response);
       } else {
-        res.status(400).send(result);
+        res.status(400).send(response);
       }
     })
     .catch((err) => {
@@ -61,8 +76,8 @@ module.exports.findThrough = (req, res, next) => {
     to = +req.params.from;
   }
 
-  Event.findAndCountAll({
-    include: [Location],
+  Event.findAll({
+    include: [Location, HighLights],
     where: {
       id: {
         [Op.between]: [from, to]
@@ -70,10 +85,14 @@ module.exports.findThrough = (req, res, next) => {
     }
   })
     .then((result) => {
-      if (result.count > 0) {
-        res.json(result);
+      let response = {};
+
+      if (result.length > 0) {
+        response.count = result.length;
+        response.rows = result;
+        res.json(response);
       } else {
-        res.status(400).send(result);
+        res.status(400).send(response);
       }
     })
     .catch((err) => {

@@ -7,7 +7,7 @@ router.get('/', EventsController.findAll);
 
 router.get('/:from-:to', EventsController.findThrough);
 
-router.get('/:to', EventsController.findFrom);
+router.get('/:from', EventsController.findFrom);
 
 router.get('/location/:locationId', EventsController.findByLocation);
 
