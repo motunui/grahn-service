@@ -15,7 +15,7 @@ function event({ dataValues }) {
     name: faker.lorem.words(),
     description: faker.lorem.sentence(),
     imageUrl: faker.image.imageUrl(),
-    listPrice: faker.finance.amount(),
+    listPrice: faker.finance.amount() * 100,
     locationId: dataValues.id
   });
 }
@@ -27,15 +27,20 @@ function highlight({ dataValues }) {
   });
 }
 
-function populate(objArr, func) {
+function populate(locations, func) {
   let arr = [];
-  let random = randomizeNumberThrough(1, 3);
 
-  for (let i = 0; i < random; i += 1) {
-    for (let j = 0; j < objArr.length; j += 1) {
-      arr.push(func(objArr[j]));
+  locations.forEach((location) => {
+    let random = randomizeNumberThrough(1, 3);
+    for (let i = 0; i < random; i += 1) {
+      arr.pop(func(location));
     }
-  }
+  });
+  // for (let i = 0; i < random; i += 1) {
+  //   for (let j = 0; j < objArr.length; j += 1) {
+  //     arr.push(func(objArr[j]));
+  //   }
+  // }
 
   return Promise.all(arr);
 }

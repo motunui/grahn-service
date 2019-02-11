@@ -1,41 +1,14 @@
 let express = require('express');
 let router = express.Router();
-let { Event } = require('../../../database/models.js');
+let EventsController = require('../controllers/events.controller.js');
+let then = require('../controllers/then.js');
 
-router.get('/', (req, res, next) => {
-  // NOTE: Should this call get all entries of the database?
-  Event.findOne()
-    .then((result) => {
-      if (result) {
-        res.send(result);
-      }
-    })
-    .catch((err) => {
-      res.statusCode(500);
-    });
-});
+router.get('/', EventsController.findAll);
 
-router.get('/:from-:to', (req, res, next) => {
-  let { from, to } = req.params;
+router.get('/:from-:to', EventsController.findThrough);
 
-  // still not working
-  res.send({ from, to });
-});
+router.get('/:to', EventsController.findFrom);
 
-router.post('/:from-:to', (req, res) => {
-  let body = req.body;
-  let { from, to } = req.params;
-
-  // still not working
-  res.send({ to, from, body });
-});
-
-router.put('/:from-:to', (req, res) => {
-  let body = req.body;
-  let { from, to } = req.params;
-
-  // still not working
-  res.send({ to, from, body });
-});
+router.get('/location/:locationId', EventsController.findByLocation);
 
 module.exports = router;

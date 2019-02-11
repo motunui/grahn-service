@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
-let { Event } = require('../../../database/models.js');
+let { Event, Location } = require('../../../database/models.js');
+const { Op } = require('sequelize');
 
 router.get('/', (req, res, next) => {
   res.send({ Event: 'This is the envents root route' });
@@ -9,13 +10,13 @@ router.get('/', (req, res, next) => {
 router.get('/:eventId', (req, res) => {
   let { eventId } = req.params;
 
-  Event.findById(eventId)
-    .then((result) => {
-      if (result) {
-        res.json(result);
-      }
-    })
-    .catch((err) => {});
+  // Event.findById(eventId)
+  //   .then((result) => {
+  //     if (result) {
+  //       res.json(result);
+  //     }
+  //   })
+  //   .catch((err) => {});
 });
 
 router.post('/', (req, res) => {
