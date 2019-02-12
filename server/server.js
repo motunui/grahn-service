@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const apiRoutes = require('./api/routes/api/index');
+const Routes = require('./api/routes/index');
 const morgan = require('morgan');
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api', apiRoutes);
+app.use('/api', Routes);
 
 app.listen(PORT, () => {
   console.log('Listening on Port : ', PORT);
