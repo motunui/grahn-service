@@ -21,8 +21,10 @@ const Guarantee = db.define('guarantee', {
   body: Sequelize.TEXT
 });
 
-Location.hasOne(Event);
-Event.hasOne(HighLights);
+Location.hasMany(Event);
+Event.belongsTo(Location);
+Event.hasMany(HighLights);
+HighLights.belongsTo(Event);
 
 module.exports = {
   Location: Location,
