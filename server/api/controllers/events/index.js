@@ -1,4 +1,4 @@
-let { Event, Location, HighLights } = require('../../../database/models.js');
+let { Event, Location, HighLights } = require('../../../../database/models');
 let { Op } = require('sequelize');
 
 module.exports.findAll = (req, res, next) => {

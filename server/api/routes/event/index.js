@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let EventController = require('../controllers/event.controller.js');
+let EventController = require('../../controllers/event/index');
 
 router.get('/', (req, res, next) => {
   res.send({ Event: 'This is the envents root route' });

@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let { Guarantee } = require('../../../database/models.js');
+let { Guarantee } = require('../../../../database/models');
 
 router.get('/', (req, res, next) => {
   // TODO: Currently no data in this table

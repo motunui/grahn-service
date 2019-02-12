@@ -1,10 +1,10 @@
 let express = require('express');
 let router = express.Router();
-let eventsRoutes = require('./events.routes.js');
-let eventRoutes = require('./event.routes.js');
-let locationRoutes = require('./location.routes.js');
-let locationsRoutes = require('./locations.routes.js');
-let guaranteeRoutes = require('./guarantee.routes.js');
+let eventsRoutes = require('../events/index');
+let eventRoutes = require('../event/index');
+let locationRoutes = require('../location/index');
+let locationsRoutes = require('../locations/index');
+let guaranteeRoutes = require('../guarantee/index');
 
 router.use('/events', eventsRoutes);
 router.use('/event', eventRoutes);
