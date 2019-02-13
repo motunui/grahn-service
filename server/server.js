@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const Routes = require('./api/routes');
+const apiHandler = require('./api/routes');
 const morgan = require('morgan');
 const Sequelize = require('sequelize');
 const config = require('./config');
@@ -18,15 +18,14 @@ db.authenticate()
 config.sqlite.db = db;
 
 const app = express();
-const PORT = 3014;
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api', Routes);
+app.use('/api', apiHandler(config));
 
-app.listen(PORT, () => {
-  console.log('Listening on Port : ', PORT);
+app.listen(config.PORT, () => {
+  console.log('Listening on Port : ', config.PORT);
 });
