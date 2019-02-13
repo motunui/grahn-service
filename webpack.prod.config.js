@@ -1,10 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+require('@babel/polyfill');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  mode: 'production',
+  devtool: 'cheap-module-source-map',
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
@@ -60,5 +62,8 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     })
-  ]
+  ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
+  }
 };
