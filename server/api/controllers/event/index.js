@@ -5,7 +5,7 @@ module.exports.find = (req, res, next) => {
   let { eventId } = req.params;
 
   Event.findOne({
-    where: { id: eventId },
+    where: { id: +eventId },
     include: [Location, HighLights]
   })
     .then((result) => {
