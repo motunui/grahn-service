@@ -13,8 +13,8 @@
   ],
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rimraf public && webpack --config webpack.prod.config.js --profile --profile --color && npm run serve",
-    "serve": "nodemon server/server.js"
+    "build": "rimraf public && webpack --config webpack.prod.config.js --progress --profile --color && npm run serve",
+    "serve": "nodemon --inspect server/server.js"
   },
   "dependencies": {
     "express": "^4.16.4",

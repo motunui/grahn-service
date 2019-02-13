@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const Sequelize = require('sequelize');
 const config = require('./config');
 
-const db = new Sequelize('sqlite:./database/description.db');
+const db = new Sequelize(config.sqlite.options);
 
 db.authenticate()
   .then(() => {
@@ -14,6 +14,8 @@ db.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   });
+
+config.sqlite.db = db;
 
 const app = express();
 const PORT = 3014;
