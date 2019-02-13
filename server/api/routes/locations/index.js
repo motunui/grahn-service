@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
-let eventsRoutes = require('../events/index');
-let eventRoutes = require('../event/index');
+let eventsRoutes = require('../events');
+let eventRoutes = require('../event');
 let { Location } = require('../../../../database/models');
 
 router.use('/:id/event', eventRoutes);
