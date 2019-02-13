@@ -32,4 +32,4 @@ public/
 *.db
 
 #config files
-/server/config/index.js
+# /server/config/index.js
