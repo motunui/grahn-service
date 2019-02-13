@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let EventsController = require('../../controllers/events/index');
+let EventsController = require('../../controllers/events');
 
 router.get('/', EventsController.findAll);
 
