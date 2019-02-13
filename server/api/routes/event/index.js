@@ -11,7 +11,7 @@ module.exports = (config) => {
 
   // router.get('/', EventController.find);
 
-  router.get('/:eventId', (req, res) => {
+  router.get('/:eventId', async (req, res) => {
     let result = models.findOne();
     if (result) res.send(result);
     res.status(500).send('ERROR');

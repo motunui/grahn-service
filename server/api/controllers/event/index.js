@@ -1,8 +1,8 @@
 // let { Event, Location, HighLights } = require('../../../../database/models');
-const Models = require('../../models');
+const Models = require('../../../models');
 
 let models = null;
-let client = null;
+let db = null;
 
 // module.exports.find = (req, res, next) => {
 //   let { eventId } = req.params;
@@ -47,7 +47,7 @@ async function findOne() {
 }
 
 module.exports = (_db) => {
-  client = Models(_db);
+  models = Models(_db, false);
   db = _db;
   return { findOne };
 };

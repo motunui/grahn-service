@@ -9,7 +9,7 @@ module.exports = (config) => {
   const router = express.Router();
 
   router.use('/events', eventsRoutes);
-  router.use('/event', eventRoutes);
+  router.use('/event', eventRoutes(config));
   router.use('/location', locationRoutes);
   router.use('/locations', locationsRoutes);
   router.use('/guarantee', guaranteeRoutes);
