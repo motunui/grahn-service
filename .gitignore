@@ -31,3 +31,5 @@ public/
 # database
 *.db
 
+#config files
+/server/config/index.js

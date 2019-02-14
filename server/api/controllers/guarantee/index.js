@@ -3,11 +3,10 @@ const ModelsRoot = require('../../../models');
 let Models = null;
 let db = null;
 
-async function findOne(id) {
+async function get() {
   try {
-    return await Models.Event.findOne({
-      where: { id: id },
-      include: [Models.Location, Models.Highlight]
+    return await Models.Guarantee.find({
+      where: { id: 1 }
     });
   } catch (error) {
     return error;
@@ -17,5 +16,5 @@ async function findOne(id) {
 module.exports = (_db) => {
   Models = ModelsRoot(_db, false);
   db = _db;
-  return { findOne };
+  return { get };
 };

@@ -1,19 +1,22 @@
-let express = require('express');
-let router = express.Router();
-let EventController = require('../../controllers/event');
+const express = require('express');
+const EventControl = require('../../controllers/event');
 
-router.get('/', (req, res, next) => {
-  res.send({ Event: 'This is the envents root route' });
-});
+module.exports = (config) => {
+  const router = express.Router();
+  const events = EventControl(config.sqlite.db);
 
-router.get('/:eventId', EventController.find);
+  router.get('/', (req, res, next) => {
+    res.send({ Event: 'This is the event root route' });
+  });
 
-router.post('/', (req, res) => {
-  let body = req.body;
+  router.get('/:eventId', async (req, res) => {
+    let { eventId } = req.params;
 
-  // This does not work
-  // TODO: NOTE: Should this even be here?
-  res.send(body);
-});
+    let result = await events.findOne(eventId);
 
-module.exports = router;
+    if (result) res.send(result);
+    else res.status(500).send('ERROR');
+  });
+
+  return router;
+};
