@@ -1,22 +1,17 @@
-let express = require('express');
-let router = express.Router();
-let { Guarantee } = require('../../../../database/models');
+const express = require('express');
+const GuaranteeControl = require('../../controllers/guarantee');
 
-router.get('/', (req, res, next) => {
-  // TODO: Currently no data in this table
-  Guarantee.find({ id: 1 })
-    .then((result) => {
-      if (result) {
-        res.json(result);
-      } else {
-        res.send('Nope');
-      }
-    })
-    .catch((err) => {
-      if (err) {
-        res.statusCode(500);
-      }
-    });
-});
+module.exports = (config) => {
+  const router = express.Router();
 
-module.exports = router;
+  const guarantee = GuaranteeControl(config.sqlite.db);
+
+  router.get('/', async (req, res) => {
+    const result = await guarantee.get();
+
+    if (result) res.send(result);
+    else res.status(400).send('ERROR');
+  });
+
+  return router;
+};
