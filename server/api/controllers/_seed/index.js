@@ -3,7 +3,7 @@ const faker = require('faker');
 
 let lib = {};
 let db = null;
-let models = null;
+let client = null;
 
 let randomThrough = (min, max) => {
   return () => Math.floor(Math.random() * (max - min) + min);
@@ -41,26 +41,26 @@ lib.Guarantee = (name) => {
   };
 };
 
-let create = (mod, cb, name, limit = 100) => {
+let create = (model, cb, name, limit = 100) => {
   if (name === 'Guarantee') {
-    return cb(lib[name](mod));
+    return cb(lib[name](model));
   }
 
   for (let i = 1; i <= limit; i += 1) {
-    cb(lib[name](mod));
+    cb(lib[name](model));
   }
 };
 
-let populate = async (name = 'Location', mods) => {
+let populate = async (name = 'Location', models) => {
   let arr = [];
 
   let cb = (model) => {
-    arr.push(models[name].create(model));
+    arr.push(client[name].create(model));
   };
 
-  if (mods) {
-    mods.forEach((mod) => {
-      create(mod, cb, name, lib[name].limit());
+  if (models) {
+    models.forEach((model) => {
+      create(model, cb, name, lib[name].limit());
     });
   } else {
     create(null, cb, name);
@@ -70,11 +70,11 @@ let populate = async (name = 'Location', mods) => {
 };
 
 let sync = () => {
-  return models.sync;
+  return client.sync;
 };
 
 module.exports = async (_db) => {
-  models = Models(_db, true);
+  client = Models(_db, true);
   db = _db;
   return { populate, sync };
 };
