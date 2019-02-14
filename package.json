@@ -13,10 +13,12 @@
   ],
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rimraf public && webpack --config webpack.prod.config.js --progress --profile --color && npm run serve",
+    "build": "rimraf public && webpack --w --config webpack.prod.config.js --progress --profile --color && npm run serve",
     "serve": "nodemon --inspect server/server.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "morgan": "^1.9.1",
     "react": "^16.8.1",
