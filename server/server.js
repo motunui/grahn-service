@@ -4,6 +4,7 @@ const apiHandler = require('./api/routes');
 const morgan = require('morgan');
 const Sequelize = require('sequelize');
 const config = require('./config');
+const cors = require('cors');
 
 const db = new Sequelize(config.sqlite.options);
 
@@ -23,6 +24,7 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use('/api', apiHandler(config));
 
