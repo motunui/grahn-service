@@ -1,5 +1,5 @@
-// const Models = require('../../../models');
-// const faker = require('faker');
+const Models = require('../../../models');
+const faker = require('faker');
 
 let lib = {};
 let db = null;
