@@ -3,18 +3,19 @@ const EventControl = require('../../controllers/event');
 
 module.exports = (config) => {
   const router = express.Router();
-  const models = EventControl(config);
+  const events = EventControl(config.sqlite.db);
 
-  // router.get('/', (req, res, next) => {
-  //   res.send({ Event: 'This is the event root route' });
-  // });
-
-  // router.get('/', EventController.find);
+  router.get('/', (req, res, next) => {
+    res.send({ Event: 'This is the event root route' });
+  });
 
   router.get('/:eventId', async (req, res) => {
-    let result = models.findOne();
+    let { eventId } = req.params;
+
+    let result = await events.findOne(eventId);
+
     if (result) res.send(result);
-    res.status(500).send('ERROR');
+    else res.status(500).send('ERROR');
   });
 
   return router;

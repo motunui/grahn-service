@@ -1,18 +1,18 @@
 const express = require('express');
-const eventsRoutes = require('./events');
 const eventRoutes = require('./event');
-const locationRoutes = require('./location');
-const locationsRoutes = require('./locations');
 const guaranteeRoutes = require('./guarantee');
+// const eventsRoutes = require('./events');
+// const locationRoutes = require('./location');
+// const locationsRoutes = require('./locations');
 
 module.exports = (config) => {
   const router = express.Router();
 
-  router.use('/events', eventsRoutes);
+  // router.use('/events', eventsRoutes);
+  // router.use('/location', locationRoutes);
+  // router.use('/locations', locationsRoutes);
   router.use('/event', eventRoutes(config));
-  router.use('/location', locationRoutes);
-  router.use('/locations', locationsRoutes);
-  router.use('/guarantee', guaranteeRoutes);
+  router.use('/guarantee', guaranteeRoutes(config));
 
   router.get('/', function(req, res) {
     res.send({ api: 'This is the api root route' });
