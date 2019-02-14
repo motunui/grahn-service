@@ -1,27 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import Highlight from './Highlights';
+import Highlight from '../components/Highlights/Highlights';
+import EventImage from '../components/EventImage/EventImage';
 
-const EventDetail = (props) => {
-  const [events, setEvent] = useState('');
-  const [description, setDescription] = useState('');
-  const [highlights, setHighLights] = useState([]);
-  // const [guarantee, setguarantee] = useState('');
+const EventDetail = ({ location }) => {
+  const [event, setEvent] = useState(null);
+  const [guarantee, setguarantee] = useState(null);
+  // const [description, setDescription] = useState('');
+  // const [highlights, setHighLights] = useState([]);
   // const [location, setLocation] = useState([]);
 
   useEffect(() => {
-    Axios.get('/api/event/43').then(({ data }) => {
-      console.log(data);
-      setEvent(data.Name);
-      setDescription(data.Description);
-      setHighLights(data.Highlights);
-    });
+    fetchFromDB('event/43', setEvent);
   }, []);
+
+  useEffect(() => {
+    fetchFromDB('guarantee', setguarantee);
+  }, []);
+
+  const fetchFromDB = (path, cb) => {
+    Axios.get(`/api/${path}`)
+      .then(({ data }) => {
+        console.log('TCL: fetchFromDB -> data', data);
+        cb(data);
+      })
+      .catch((err) => {
+        console.log('TCL: fetchFromDB -> err', err);
+      });
+  };
 
   return (
     <>
-      <ul>{events}</ul>
-      <Highlight highlight={highlights} />
+      {/* {event ? event.id : event}
+      {guarantee ? guarantee.Body : guarantee} */}
+      {event ? <EventImage imagePath={event.ImageUrl} /> : event}
+      <hr />
+      {event ? <Highlight highlight={event.Highlights} /> : event}
     </>
   );
 };
