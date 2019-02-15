@@ -1,20 +1,20 @@
 import React, { Suspense, useState, useEffect } from 'react';
 
-import Highlight from '../../components/Highlights/Highlights';
+// import Highlight from '../../components/Highlights/Highlights';
 import PhotoModule from '../../components/PhotoModule/PhotoModule';
 import Description from '../../components/Description/Description';
 
 import classes from './Product.css';
 import { fetchFromDB } from '../../utils/fetch';
 
-const Guarantee = React.lazy(() => import('../Guarantee'));
+// const Guarantee = React.lazy(() => import('../Guarantee'));
 
-const EventDetail = ({ location }) => {
-  const [event, setEvent] = useState(null);
+const Product = ({ location }) => {
+  const [product, setProduct] = useState(null);
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
-    fetchFromDB('event/43', setEvent);
+    fetchFromDB('event/43', setProduct);
   }, []);
 
   const renderGuar = () => {
@@ -24,8 +24,8 @@ const EventDetail = ({ location }) => {
   return (
     <div className={classes.apd_header}>
       <>
-        {event ? <PhotoModule imagePath={event.ImageUrl} /> : event}
-        {event ? <Highlight highlight={event.Highlights} /> : event}
+        {product ? <PhotoModule imagePath={product.ImageUrl} /> : product}
+        {product ? <Description product={product} /> : product}
         {/* {event ? (
           <Description location={event.Location.Name} type={event.Type} />
         ) : (
@@ -44,4 +44,4 @@ const EventDetail = ({ location }) => {
   );
 };
 
-export default EventDetail;
+export default Product;

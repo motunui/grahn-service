@@ -1,0 +1,37 @@
+.float_wrapper {
+  float: right;
+  padding-top: 2px;
+  padding-left: 12px;
+  position: relative;
+}
+
+.public_size {
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.public_fa {
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.public_cta {
+  padding-left: 4px;
+  display: inline !important;
+}
+
+.float_wrapper.share::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  width: 1px;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: black;
+}

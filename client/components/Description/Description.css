@@ -1,0 +1,118 @@
+.ui_header {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000a12;
+}
+
+h1 {
+  font: normal 1em/110% Arial, Tahoma, 'Bitstream Vera Sans', sans-serif;
+}
+
+.product_module {
+  flex-basis: 50%;
+  padding: 11px 0 0 28px;
+}
+
+.product_wrapper {
+  padding: 24px 0 12px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.product_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.button {
+  overflow: visible;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-family: inherit;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-clip: padding-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+}
+
+.original {
+  border-color: #fc0 #e4a000 #e4a000 #fc0;
+  background-color: #fc0;
+  color: #000;
+}
+
+.large {
+  padding: 10px 22px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.pricing {
+  padding-left: 12px;
+}
+
+.price {
+  white-space: nowrap;
+}
+
+.from {
+  color: #4a4a4a;
+  font-size: 13.95px;
+  line-height: 14px;
+  font-weight: normal;
+  text-align: right;
+  vertical-align: top;
+}
+
+.from span {
+  color: #1f1f1f;
+  font-size: 35.86px;
+  font-weight: normal;
+  line-height: 24px;
+  text-align: right;
+  transform: scaleY(1.004);
+  padding-left: 18px;
+}
+
+.guarantee {
+  padding-top: 14px;
+}
+
+.align {
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.lowPriceGuarantee {
+  display: flex;
+  align-items: center;
+}
+
+.guarantee_link {
+  color: #4a4a4a;
+  font-size: 11.96px;
+  text-align: right;
+  display: inline-block;
+  cursor: pointer;
+}
+
+a,
+a:visited,
+a:active {
+  color: #069;
+  text-decoration: none;
+  outline: none;
+}

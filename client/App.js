@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
-import asyncComponent from './hoc/asyncComponent';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faShare, faBookmark } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faShare, faBookmark);
 
 import classes from './App.css';
+import asyncComponent from './hoc/asyncComponent';
 
 import Product from './container/Product/Product';
 
