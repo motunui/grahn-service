@@ -4,7 +4,7 @@ import Guarantee from '../components/Guarantee/Guarantee';
 
 import { fetchFromDB } from '../utils/fetch';
 
-const guaranteeContainer = (props) => {
+export default (props) => {
   const [body, setBody] = useState(null);
 
   useEffect(() => {
@@ -14,5 +14,3 @@ const guaranteeContainer = (props) => {
 
   return <>{body ? <Guarantee body={body.Body} /> : body}</>;
 };
-
-export default guaranteeContainer;

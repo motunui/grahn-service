@@ -1,7 +1,9 @@
 import React from 'react';
 
+import classes from './Highlights.css';
+
 const Highlight = ({ highlight }) => (
-  <div>
+  <div className={classes.product_highlight_module}>
     <p>HighLights</p>
     <ul>
       {highlight.map((hl, i) => {
