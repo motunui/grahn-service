@@ -4,7 +4,7 @@ import Highlight from '../../components/Highlights/Highlights';
 import PhotoModule from '../../components/PhotoModule/PhotoModule';
 import Description from '../../components/Description/Description';
 
-import classes from './ProductDetail.css';
+import classes from './Product.css';
 import { fetchFromDB } from '../../utils/fetch';
 
 const Guarantee = React.lazy(() => import('../Guarantee'));

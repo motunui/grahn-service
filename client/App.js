@@ -4,7 +4,7 @@ import asyncComponent from './hoc/asyncComponent';
 
 import classes from './App.css';
 
-import ProductDetail from './container/ProductDetail/ProductDetail';
+import Product from './container/Product/Product';
 
 const AsyncPizza = asyncComponent(() => {
   return import('./container/Pizza.js');
@@ -18,7 +18,7 @@ class App extends Component {
           <Link to={'/'}>Detail</Link> | <Link to="/pizza">Pizza</Link>
         </div>
         <div className={classes.product_detail_header}>
-          <Route path="/" exact component={ProductDetail} />
+          <Route path="/" exact component={Product} />
           <Route path="/pizza" component={AsyncPizza} />
         </div>
       </div>
