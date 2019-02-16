@@ -44,27 +44,32 @@ td {
   padding: 0;
 }
 
-div.subsection ul {
+.subsection ul {
   position: relative;
   margin-left: 20px;
   list-style-position: outside;
 }
 
-/* ol,
-ul {
-  list-style: none;
-} */
-
-div.subsection li {
+.subsection li {
   font-size: 14px;
   line-height: 24px;
-}
-div.subsection li {
-  line-height: 20px;
   margin: 6px 0;
 }
 
 .show_more {
   color: #069;
   cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+li::before {
+  content: '•';
+  color: #000a12;
+  font-size: 24px;
+  position: absolute;
+  right: 100%;
+  padding-right: 7px;
 }
