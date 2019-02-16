@@ -5,9 +5,14 @@ import classes from './App.css';
 import Product from './container/Product/Product';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faShare, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faShare,
+  faBookmark,
+  faCheck,
+  faInfoCircle
+} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faShare, faBookmark);
+library.add(faShare, faBookmark, faCheck, faInfoCircle);
 
 class App extends Component {
   render() {

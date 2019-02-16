@@ -112,7 +112,24 @@ h1 {
 a,
 a:visited,
 a:active {
-  color: #069;
   text-decoration: none;
   outline: none;
+}
+
+.checkmark {
+  font-size: 16px;
+  line-height: 20px;
+  color: #00a680;
+  margin-right: 6px;
+}
+
+.cancellation a {
+  color: #767676;
+}
+
+.info_circle {
+  color: #d6d6d6;
+  font-size: 18px;
+  padding-left: 3px;
+  cursor: pointer;
 }

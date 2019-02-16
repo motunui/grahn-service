@@ -3,6 +3,7 @@ import React from 'react';
 import Hightlight from '../Highlights/Highlights';
 import Guarantee from '../../container/Guarantee/Guarantee';
 import Social from '../Social/Social';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import classes from './Description.css';
 
@@ -45,13 +46,23 @@ export default ({ product }) => {
                     <a className={classes.guarantee_link}>
                       Low Price Guarantee{' '}
                     </a>
+                    <FontAwesomeIcon
+                      icon="info-circle"
+                      transform="shrink-3"
+                      className={classes.info_circle}
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="cancellation" />
+        <div className="cancellation">
+          <span className={classes.checkmark}>
+            <FontAwesomeIcon icon="check" size="xs" />
+          </span>
+          <a>Free Cancellation up to 24 hours in advance</a>
+        </div>
       </div>
       <Hightlight highlights={product.Highlights} />
     </div>
