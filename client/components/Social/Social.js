@@ -1,23 +1,25 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import classes from './Social.css';
+import cls from './Social.css';
 
 const shareAfter = (fa) => {
   if (fa === 'bookmark') {
-    return <div className={[classes.float_wrapper, fa].join(' ')} />;
+    return <div className={[cls.float_wrapper, fa].join(' ')} />;
   }
 };
 
 export default ({ fa, title }) => (
   <>
-    <div className={[classes.float_wrapper, fa].join(' ')}>
-      <div className={classes.public_size}>
+    <div className={[cls.float_wrapper, cls[`${fa}`]].join(' ')}>
+      <div className={[cls.public_size, cls[`push_${fa}`]].join(' ')}>
         <span>
-          <span className={classes.public_fa}>
-            <FontAwesomeIcon icon={fa} />
-          </span>
-          <span className={classes.public_cta}>{title}</span>
+          <FontAwesomeIcon
+            icon={fa}
+            transform="shrink-4"
+            className={cls.public_fa}
+          />
+          <span className={cls.public_cta}>{title}</span>
         </span>
       </div>
     </div>
