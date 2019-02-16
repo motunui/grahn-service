@@ -1,41 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
+import React, { Suspense, useState, useEffect } from 'react';
+
 import Highlight from '../components/Highlights/Highlights';
 import EventImage from '../components/EventImage/EventImage';
 
+import { fetchFromDB } from '../utils/fetch';
+
+const Guarantee = React.lazy(() => import('./Guarantee'));
+
 const EventDetail = ({ location }) => {
   const [event, setEvent] = useState(null);
-  const [guarantee, setguarantee] = useState(null);
-  // const [description, setDescription] = useState('');
-  // const [highlights, setHighLights] = useState([]);
-  // const [location, setLocation] = useState([]);
+  const [load, setLoad] = useState(false);
 
   useEffect(() => {
     fetchFromDB('event/43', setEvent);
   }, []);
 
-  useEffect(() => {
-    fetchFromDB('guarantee', setguarantee);
-  }, []);
-
-  const fetchFromDB = (path, cb) => {
-    Axios.get(`/api/${path}`)
-      .then(({ data }) => {
-        console.log('TCL: fetchFromDB -> data', data);
-        cb(data);
-      })
-      .catch((err) => {
-        console.log('TCL: fetchFromDB -> err', err);
-      });
+  const renderGuar = () => {
+    setLoad(!load);
   };
 
   return (
     <>
-      {/* {event ? event.id : event}
-      {guarantee ? guarantee.Body : guarantee} */}
       {event ? <EventImage imagePath={event.ImageUrl} /> : event}
       <hr />
       {event ? <Highlight highlight={event.Highlights} /> : event}
+      <button onClick={renderGuar}>Button</button>
+      {load ? (
+        <Suspense fallback={<div>...loading</div>}>
+          <Guarantee />
+        </Suspense>
+      ) : (
+        load
+      )}
     </>
   );
 };

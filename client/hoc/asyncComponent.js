@@ -8,6 +8,8 @@ const asyncComponent = (importCompnent) => {
 
     componentDidMount() {
       importCompnent().then((cmp) => {
+        console.log('TCL: extends -> componentDidMount -> cmp', cmp);
+
         this.setState({
           component: cmp.default
         });

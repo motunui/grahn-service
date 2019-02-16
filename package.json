@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rimraf public && webpack --w --config webpack.prod.config.js --progress --profile --color && npm run serve",
+    "build": "rimraf public && webpack --w --config webpack.prod.config.js --profile --color",
     "serve": "nodemon --inspect server/server.js"
   },
   "dependencies": {
