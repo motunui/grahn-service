@@ -15,7 +15,7 @@ lib.Location = (name) => {
 
 lib.Event = ({ dataValues }) => {
   return {
-    Type: faker.lorem.words(),
+    Type: faker.lorem.sentence(),
     Name: faker.lorem.words(),
     Description: faker.lorem.sentence(),
     ImageUrl: faker.image.imageUrl(),
@@ -28,7 +28,7 @@ lib.Event.limit = randomThrough(1, 4);
 
 lib.Highlight = ({ dataValues }) => {
   return {
-    Text: faker.lorem.words(),
+    Text: faker.lorem.sentence(),
     EventId: dataValues.id
   };
 };

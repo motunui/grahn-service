@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 
-import Event from './container/EventDetail';
-import asyncComponent from './hoc/asyncComponent';
+import classes from './App.css';
+import Product from './container/Product/Product';
 
-const AsyncPizza = asyncComponent(() => {
-  return import('./container/Pizza.js');
-});
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faShare,
+  faBookmark,
+  faCheck,
+  faInfoCircle
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(faShare, faBookmark, faCheck, faInfoCircle);
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <div>
-          <Link to={'/'}>Event</Link> | <Link to="/pizza">Pizza</Link>
-        </div>
-        <div>
-          <Route path="/" exact component={Event} />
-          <Route path="/pizza" component={AsyncPizza} />
+      <div className={classes.product_detail}>
+        <div className={classes.product_detail_header}>
+          <Product />
         </div>
       </div>
     );
