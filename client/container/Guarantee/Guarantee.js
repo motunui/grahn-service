@@ -4,12 +4,12 @@ import Guarantee from '../../components/Guarantee/Guarantee';
 
 import { fetchFromDB } from '../../utils/fetch';
 
-export default (props) => {
+export default ({ onClose }) => {
   const [body, setBody] = useState(null);
 
   useEffect(() => {
     fetchFromDB('guarantee', setBody);
   }, []);
 
-  return <>{body ? <Guarantee body={body.Body} /> : body}</>;
+  return <>{body ? <Guarantee onClose={onClose} body={body.Body} /> : body}</>;
 };

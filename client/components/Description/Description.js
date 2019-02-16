@@ -74,7 +74,7 @@ export default ({ product }) => {
       </div>
       {load ? (
         <Suspense fallback={<div>...loading</div>}>
-          <Guarantee />
+          <Guarantee onClose={renderGuar} />
         </Suspense>
       ) : (
         load
