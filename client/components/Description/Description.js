@@ -6,6 +6,13 @@ import Social from '../Social/Social';
 
 import classes from './Description.css';
 
+const removePeriod = (string) => {
+  return string
+    .split('')
+    .filter((l) => l !== '.')
+    .join('');
+};
+
 export default ({ product }) => {
   return (
     // <>
@@ -13,9 +20,10 @@ export default ({ product }) => {
       <Social fa="share" title="Share" />
       <Social fa="bookmark" title="Save" />
       <h1 className={classes.ui_header}>
-        {product.Location.Name} {product.Name}: {product.Location.Name}
+        {removePeriod(product.Description)}: {product.Name}{' '}
+        {product.Location.Name}
       </h1>
-      <div className={classes.produc_wrapper}>
+      <div className={classes.product_wrapper}>
         <div className={classes.product_button}>
           <input
             type="button"
@@ -45,7 +53,6 @@ export default ({ product }) => {
         </div>
         <div className="cancellation" />
       </div>
-      <hr />
       <Hightlight highlights={product.Highlights} />
     </div>
     // </>
