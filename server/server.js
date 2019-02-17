@@ -28,6 +28,20 @@ app.use(cors());
 
 app.use('/api', apiHandler(config));
 
+// TODO: work on wild card and static 404 below
+// WILDCARD ROUTE
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public'));
+});
+
+// Route for unknown call
+app.use((req, res, next) => {
+  // res.sendFile(path.join(__dirname, '../public/index.html'));
+  const error = new Error('Not found');
+  error.status = 404;
+  next(error);
+});
+
 app.listen(config.PORT, () => {
   console.log('Listening on Port : ', config.PORT);
 });
