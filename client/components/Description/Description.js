@@ -35,7 +35,7 @@ export default ({ product }) => {
           {product.Location.Name}
         </h1>
         <div className={cls.product_wrapper}>
-          <div className={cls.product_button}>
+          <div className={cls.product_button_price}>
             <input
               type="button"
               value="Check Availability"
