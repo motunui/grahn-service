@@ -96,7 +96,7 @@ h1 {
   align-items: center;
 }
 
-.lowPriceGuarantee {
+.low_price {
   display: flex;
   align-items: center;
 }
@@ -123,8 +123,14 @@ a:active {
   margin-right: 6px;
 }
 
+.cancellation {
+  margin: 0;
+  padding: 0;
+}
+
 .cancellation a {
   color: #767676;
+  cursor: pointer;
 }
 
 .info_circle {
@@ -132,4 +138,8 @@ a:active {
   font-size: 18px;
   padding-left: 3px;
   cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
 }

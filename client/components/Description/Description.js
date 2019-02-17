@@ -50,7 +50,7 @@ export default ({ product }) => {
               <div className={cls.guarantee}>
                 <div className={cls.align} onClick={renderGuar}>
                   <div id="apd_low_price">
-                    <div className={cls.lowPriceGuarantee}>
+                    <div className={cls.low_price}>
                       <a className={cls.guarantee_link}>Low Price Guarantee </a>
                       <FontAwesomeIcon
                         icon="info-circle"
@@ -63,7 +63,7 @@ export default ({ product }) => {
               </div>
             </div>
           </div>
-          <div className="cancellation">
+          <div className={cls.cancellation}>
             <span className={cls.checkmark}>
               <FontAwesomeIcon icon="check" size="xs" />
             </span>
