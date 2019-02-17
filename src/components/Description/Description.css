@@ -19,7 +19,7 @@ h1 {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.product_button {
+.product_button_price {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -27,8 +27,6 @@ h1 {
 
 .button {
   overflow: visible;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   position: relative;
   display: inline-block;
   padding: 8px 16px;
@@ -42,9 +40,13 @@ h1 {
   line-height: 18px;
   text-align: center;
   text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: none;
+  border-color: #ffb300 #e4a000 #e4a000 #ffb300;
+  background-color: #ffb300;
 }
 
 .original {
@@ -96,7 +98,7 @@ h1 {
   align-items: center;
 }
 
-.lowPriceGuarantee {
+.low_price {
   display: flex;
   align-items: center;
 }
@@ -123,8 +125,14 @@ a:active {
   margin-right: 6px;
 }
 
+.cancellation {
+  margin: 0;
+  padding: 0;
+}
+
 .cancellation a {
   color: #767676;
+  cursor: pointer;
 }
 
 .info_circle {
@@ -132,4 +140,8 @@ a:active {
   font-size: 18px;
   padding-left: 3px;
   cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
 }

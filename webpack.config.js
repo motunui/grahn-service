@@ -5,7 +5,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
-  entry: './client/index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
@@ -56,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: __dirname + '/client/index.html',
+      template: __dirname + '/src/index.html',
       inject: 'body',
       filename: 'index.html'
     })

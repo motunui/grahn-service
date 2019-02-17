@@ -33,7 +33,7 @@ lib.Highlight = ({ dataValues }) => {
   };
 };
 
-lib.Highlight.limit = randomThrough(3, 6);
+lib.Highlight.limit = randomThrough(2, 8);
 
 lib.Guarantee = (name) => {
   return {

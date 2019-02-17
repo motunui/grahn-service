@@ -1,14 +1,24 @@
 .float_wrapper {
   float: right;
-  padding-top: 2px;
-  padding-left: 12px;
   position: relative;
+}
+
+.share {
+  /* padding-top: 2px; */
+  padding-left: 12px;
 }
 
 .public_size {
   font-size: 16px;
   line-height: 20px;
   cursor: pointer;
+}
+
+.push_bookmark {
+  position: relative;
+  top: 1px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .public_fa {
@@ -22,7 +32,7 @@
   display: inline !important;
 }
 
-.float_wrapper.share::before {
+.share:before {
   content: '';
   position: absolute;
   left: 0;
@@ -33,5 +43,9 @@
   width: 1px;
   border-width: 0 1px 0 0;
   border-style: solid;
-  border-color: black;
+  border-color: #e5e5e5;
+}
+
+span:hover > .public_fa {
+  color: #00a680;
 }
