@@ -56,11 +56,6 @@ td {
   margin: 6px 0;
 }
 
-.show_more {
-  color: #069;
-  cursor: pointer;
-}
-
 ul {
   list-style: none;
 }
@@ -72,4 +67,17 @@ li::before {
   position: absolute;
   right: 100%;
   padding-right: 7px;
+}
+
+.more {
+  color: #069;
+  cursor: pointer;
+}
+
+.more:hover {
+  text-decoration: underline;
+}
+
+.bullet_false {
+  display: none;
 }

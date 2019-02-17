@@ -1,7 +1,12 @@
 import Axios from 'axios';
 
+let axios = Axios.create({
+  baseURL: '/api/'
+});
+
 export function fetchFromDB(path, setState) {
-  Axios.get(`/api/${path}`)
+  axios
+    .get(`${path}`)
     .then(({ data }) => {
       console.log('TCL: fetchFromDB -> data', data);
       setState(data);

@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import classes from './Highlights.css';
+import cls from './Highlights.css';
 
-const Highlight = ({ highlights }) => (
-  <div className={classes.overview_wrapper}>
-    <div className="section">
-      <div className={classes.section_header}>Highlights</div>
-      <div className={classes.subsection}>
-        <ul>
-          {highlights.map((hl, i) => {
-            return <li key={i}>{hl.Text}</li>;
-          })}
-        </ul>
-        <div className={classes.show_more}>More</div>
+const Highlight = ({ highlights }) => {
+  const [load, setLoad] = useState(false);
+  let display = true;
+
+  const more = () => {
+    setLoad(!load);
+  };
+
+  return (
+    <div className={cls.overview_wrapper}>
+      <div className="section">
+        <div className={cls.section_header}>Highlights</div>
+        <div className={cls.subsection}>
+          <ul>
+            {highlights.map((hl, i) => {
+              if (i > 2 && !load) display = false;
+              return (
+                <li className={cls[`bullet_${display}`]} key={i}>
+                  {hl.Text}
+                </li>
+              );
+            })}
+          </ul>
+          {!load && highlights.length > 3 ? (
+            <div>
+              <span className={cls.more} onClick={more}>
+                More
+              </span>
+            </div>
+          ) : null}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Highlight;
