@@ -6,11 +6,11 @@ import cls from './Product.css';
 
 import { fetchFromDB } from '../../utils/fetch';
 
-const Product = (props) => {
+const Product = ({ match }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetchFromDB('event/19', setProduct);
+    fetchFromDB(`event/${match.params.id}`, setProduct);
   }, []);
 
   return (
