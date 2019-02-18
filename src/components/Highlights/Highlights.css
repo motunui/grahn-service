@@ -1,0 +1,83 @@
+.overview_wrapper {
+  padding-top: 24px;
+}
+
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+.section_header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: none;
+  color: #00a680;
+  font-size: 20px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.subsection {
+  margin: 0;
+  padding: 0;
+}
+
+.subsection ul {
+  position: relative;
+  margin-left: 20px;
+  list-style-position: outside;
+}
+
+.subsection li {
+  font-size: 14px;
+  line-height: 24px;
+  margin: 6px 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li::before {
+  content: '•';
+  color: #000a12;
+  font-size: 24px;
+  position: absolute;
+  right: 100%;
+  padding-right: 7px;
+}
+
+.more {
+  color: #069;
+  cursor: pointer;
+}
+
+.more:hover {
+  text-decoration: underline;
+}
+
+.bullet_false {
+  display: none;
+}

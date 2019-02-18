@@ -7,7 +7,7 @@ require('@babel/polyfill');
 module.exports = {
   mode: 'production',
   devtool: 'cheap-module-source-map',
-  entry: './client/index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
@@ -34,7 +34,7 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              localIdentName: '[local]_[hash:base64:5]'
             }
           },
           {
@@ -51,6 +51,14 @@ module.exports = {
         ]
       },
       {
+        test: /\.ttf$/,
+        loader: 'url-loader', // or directly file-loader
+        include: path.resolve(
+          __dirname,
+          'node_modules/react-native-vector-icons'
+        )
+      },
+      {
         test: /\.(png|jpe?g|gif)$/,
         loader: 'url-loader?limit=8000&name=images/[name].[ext]'
       }
@@ -58,7 +66,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: __dirname + '/client/index.html',
+      template: __dirname + '/src/index.html',
       inject: 'body',
       filename: 'index.html'
     })

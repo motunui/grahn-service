@@ -1,0 +1,51 @@
+.float_wrapper {
+  float: right;
+  position: relative;
+}
+
+.share {
+  /* padding-top: 2px; */
+  padding-left: 12px;
+}
+
+.public_size {
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.push_bookmark {
+  position: relative;
+  top: 1px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.public_fa {
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.public_cta {
+  padding-left: 4px;
+  display: inline !important;
+}
+
+.share:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  width: 1px;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: #e5e5e5;
+}
+
+span:hover > .public_fa {
+  color: #00a680;
+}
