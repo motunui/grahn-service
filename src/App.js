@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import classes from './App.css';
 import Product from './container/Product/Product';
@@ -19,9 +19,7 @@ class App extends Component {
     return (
       <div className={classes.product_detail}>
         <div className={classes.product_detail_header}>
-          {/* TODO: Route Paths */}
-          {/* <Route exact path="/event/:id" component={Product} /> */}
-          <Product />
+          <Route exact path="/:id" component={Product} />
         </div>
       </div>
     );
