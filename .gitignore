@@ -2,7 +2,7 @@
 .DS_Store
 
 ## VSCODE files ##
-.vscode
+/.vscode
 
 ## NPM ##
 npm
@@ -29,7 +29,7 @@ dist/
 public/
 
 # database
-server/.db/.db
+server/.db/*.db
 
 #config files
 /server/config/index.js
