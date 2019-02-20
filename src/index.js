@@ -11,4 +11,4 @@ const app = (
   </BrowserRouter>
 );
 
-ReactDOM.render(app, document.getElementById('root'));
+ReactDOM.render(app, document.getElementById('Details'));

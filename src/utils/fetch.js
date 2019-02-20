@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 let axios = Axios.create({
-  baseURL: '/api/'
+  baseURL: 'http://localhost:3014/api/'
 });
 
 export function fetchFromDB(path, setState) {
