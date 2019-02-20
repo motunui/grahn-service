@@ -17,11 +17,11 @@ library.add(faShare, faBookmark, faCheck, faInfoCircle);
 class App extends Component {
   render() {
     return (
-      <div className={classes.product_detail}>
-        <div className={classes.product_detail_header}>
-          <Route exact path="/:id" component={Product} />
-        </div>
+      // <div className={classes.product_detail}>
+      <div className={classes.product_detail_header}>
+        <Route exact path="/:id" component={Product} />
       </div>
+      // </div>
     );
   }
 }

@@ -14,7 +14,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "rimraf build && webpack --w --config webpack.config.prod.js --profile --color",
-    "serve": "nodemon --inspect server/server.js",
+    "serve": "nodemon server/server.js",
+    "serve-dev": "nodemon --inspect server/server.js",
     "test": "jest"
   },
   "dependencies": {
