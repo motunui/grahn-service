@@ -29,7 +29,7 @@ app.use(cors());
 app.use('/api', apiHandler(config));
 
 app.listen(config.PORT, () => {
-  console.log('Listening on Port : ', config.PORT);
+  console.log(`Listening on Port : ${config.PORT}`);
 });
 
 // WILDCARD ROUTE
