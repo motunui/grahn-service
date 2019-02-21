@@ -1,6 +1,6 @@
 const path = require('path');
 
-const appname = 'TipAdvisor';
+const appname = 'TripAdvisor';
 
 module.exports = {
   applicationName: appname,
