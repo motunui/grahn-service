@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 let axios = Axios.create({
-  baseURL: 'ec2-34-205-143-254.compute-1.amazonaws.com/api/'
+  baseURL: 'http://34.205.143.254/api/'
 });
 
 export function fetchFromDB(path, setState) {
