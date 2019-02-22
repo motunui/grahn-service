@@ -27,10 +27,10 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../build')));
 
 app.use('/api', apiHandler(config));
-app.use('/:id', () => {
-  console.log('In ID');
-  express.static(path.join(__dirname, '../build'));
-});
+// app.use('/:id', () => {
+//   console.log('In ID');
+//   express.static(path.join(__dirname, '../build'));
+// });
 
 app.listen(config.PORT, () => {
   console.log(`Listening on Port : ${config.PORT}`);
@@ -38,8 +38,5 @@ app.listen(config.PORT, () => {
 
 // WILDCARD ROUTE
 app.get('*', (req, res) => {
-  // TODO: this should be a 404
-  // app.use(express.static(__dirname, '../build'));
-  console.log('in Wild');
-  res.sendFile(path.join(__dirname, '../build/bundle.js'));
+  res.sendFile(path.join(__dirname, '../build/index.html'));
 });
