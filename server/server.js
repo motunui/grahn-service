@@ -38,5 +38,5 @@ app.get('*', (req, res) => {
   // TODO: this should be a 404
   // app.use(express.static(__dirname, '../build'));
   console.log('in Wild');
-  res.sendFile(path.join(__dirname, '../build/index.html'));
+  res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
