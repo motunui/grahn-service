@@ -24,11 +24,11 @@ server.use(cors());
 server.use(morgan('dev'));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-// server.use(express.static(path.join(__dirname, '../build')));
+server.use(express.static(path.join(__dirname, '../build')));
 
-server.use('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/bundle.js'));
-});
+// server.use('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../build/bundle.js'));
+// });
 
 server.use('/api', apiHandler(config));
 
@@ -43,6 +43,6 @@ server.listen(config.PORT, () => {
 
 // WILDCARD ROUTE
 server.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/bundle.js'));
-  //   res.sendfile(path.join(__dirname, '../build/index.html'));
+  // res.sendFile(path.join(__dirname, '../build/bundle.js'));
+  res.sendfile(path.join(__dirname, '../build/index.html'));
 });
