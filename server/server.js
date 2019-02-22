@@ -21,10 +21,11 @@ config.sqlite.db = db;
 const app = express();
 
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, '../build')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+app.use('/:id', express.static(path.join(__dirname, '../build')));
 
 app.use('/api', apiHandler(config));
 
@@ -34,6 +35,7 @@ app.listen(config.PORT, () => {
 
 // WILDCARD ROUTE
 app.get('*', (req, res) => {
+  // TODO: this should be a 404
+  app.use(express.static(__dirname, '../build'));
   // res.sendFile(path.join(__dirname, '../build/index.html'));
-  res.sendFile(express.static(path.join(__dirname, '../build/index.html')));
 });
