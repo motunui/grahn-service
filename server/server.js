@@ -27,7 +27,10 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../build')));
 
 app.use('/api', apiHandler(config));
-// app.use('/:id', express.static(path.join(__dirname, '../build')));
+app.use('/:id', () => {
+  console.log('In ID');
+  express.static(path.join(__dirname, '../build'));
+});
 
 app.listen(config.PORT, () => {
   console.log(`Listening on Port : ${config.PORT}`);
