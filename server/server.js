@@ -36,6 +36,6 @@ app.listen(config.PORT, () => {
 // WILDCARD ROUTE
 app.get('*', (req, res) => {
   // TODO: this should be a 404
-  app.use(express.static(__dirname, '../build'));
-  // res.sendFile(path.join(__dirname, '../build/index.html'));
+  // app.use(express.static(__dirname, '../build'));
+  res.sendFile(path.join(__dirname, '../build/index.html'));
 });
