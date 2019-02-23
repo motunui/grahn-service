@@ -21,7 +21,7 @@ config.sqlite.db = db;
 
 const server = express();
 
-serfver.use(compress());
+server.use(compress());
 server.use(cors());
 server.use(morgan('dev'));
 server.use(express.json());
