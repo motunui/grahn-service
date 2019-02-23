@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const Sequelize = require('sequelize');
 const config = require('./config');
 const cors = require('cors');
+const compress = require('compression');
 
 const db = new Sequelize(config.sqlite.options);
 
@@ -20,6 +21,7 @@ config.sqlite.db = db;
 
 const server = express();
 
+serfver.use(compress());
 server.use(cors());
 server.use(morgan('dev'));
 server.use(express.json());
