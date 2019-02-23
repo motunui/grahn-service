@@ -26,18 +26,16 @@ server.use(cors());
 server.use(morgan('dev'));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+
+server.get('*.js', (req, res, next) => {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 server.use(express.static(path.join(__dirname, '../build')));
 
-// server.use('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../build/bundle.js'));
-// });
-
 server.use('/api', apiHandler(config));
-
-// app.use('/:id', () => {
-//   console.log('In ID');
-//   express.static(path.join(__dirname, '../build'));
-// });
 
 server.listen(config.PORT, () => {
   console.log(`Listening on Port : ${config.PORT}`);
@@ -45,6 +43,5 @@ server.listen(config.PORT, () => {
 
 // WILDCARD ROUTE
 server.get('*', (req, res) => {
-  // res.sendFile(path.join(__dirname, '../build/bundle.js'));
   res.sendfile(path.join(__dirname, '../build/index.html'));
 });

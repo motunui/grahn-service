@@ -13,8 +13,9 @@
   ],
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rimraf build && webpack --w --config webpack.config.prod.js --profile --color",
+    "build": "rimraf build && webpack --config webpack.config.js --profile --color",
     "serve": "nodemon server/server.js",
+    "build-dev": "rimraf build && --w webpack --config webpack.config.js --profile --color",
     "serve-dev": "nodemon --inspect server/server.js",
     "test": "jest"
   },
@@ -45,6 +46,7 @@
     "autoprefixer": "^9.4.7",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
+    "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
